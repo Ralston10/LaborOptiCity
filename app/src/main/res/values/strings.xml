@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LaborOptiCity</string>
+    <string-array name="Gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Prefer Not To Say</item>
+    </string-array>
+
+</resources>
+
