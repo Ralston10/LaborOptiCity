@@ -20,7 +20,7 @@
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Name"
         style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
@@ -38,7 +38,7 @@
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
 
         android:hint="Email"
@@ -57,7 +57,7 @@
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Phone Number"
         style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
@@ -73,7 +73,7 @@
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
 
         android:hint="Password"
@@ -91,7 +91,7 @@
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Confirm Password"
         style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
@@ -110,7 +110,7 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp">
 
         <AutoCompleteTextView

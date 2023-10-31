@@ -1,61 +1,50 @@
 package com.example.laboropticity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.laboropticity.databinding.ActivityMainBinding;
+
 
 public class MainActivity extends AppCompatActivity {
-
-    FirebaseAuth auth;
-    Button LoginMBTN;
-    TextView userdet;
-
-    FirebaseUser user;
-
-    TextInputEditText UserName;
-
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragment(new HomeFragment());
 
-        auth=FirebaseAuth.getInstance();
-        user= auth.getCurrentUser();
-        LoginMBTN=findViewById(R.id.LoginMBTN);
-        userdet=findViewById(R.id.userdet);
-        UserName=findViewById(R.id.UserName);
-
-
-        if(user==null)
-        {
-            Intent intent=new Intent(getApplicationContext(),login.class);
-            startActivity(intent);
-            finish();
-        }
-        else
-        {
-
-            userdet.setText(user.getEmail());
-
-        }
-
-        LoginMBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent=new Intent(getApplicationContext(),login.class);
-                startActivity(intent);
-                finish();
+        binding.bottomNavigationView.setBackground(null);
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id=item.getItemId();
+            if(id==R.id.home)
+            {
+                replaceFragment(new HomeFragment());
             }
-        });
+            else if(id==R.id.shorts)
+            {
+                replaceFragment(new ShortsFragment());
+            }
+            else if(id==R.id.subscriptions)
+            {
+                replaceFragment(new SubFragment());
+            }
+            else if(id==R.id.library)
+            {
+                replaceFragment(new LibraryFragment());
+            }
 
+            return true;
+        });
+    }
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 }
